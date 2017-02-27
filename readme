@@ -1,0 +1,30 @@
+function setShowMobanInfo(root,info){
+  var tempul;
+  tempul = $('#'+root).clone(true);
+  tempul.children().each(function() {
+      var htmword = $(this).html();
+      //调用Hz2Py  toPinyin()
+      var pyword = $(this).toPinyin();
+      var supperword = "";
+      pyword.replace(/[A-Z]/g, function(word) { supperword += word });
+      $(this).attr("mka", (htmword).toLowerCase());
+      $(this).attr("mkb", (pyword).toLowerCase());
+      $(this).attr("mkc", (supperword).toLowerCase());
+  });
+ return tempul ;
+}
+//搜索框改变
+function selectOption(keys,root){
+  keys = keys.toLowerCase();
+  $("#" + root).children().remove();
+  var duplul = $(selectMobanInfo);
+  if (keys.length <= 0) {
+      duplul.children().each(function() {
+      $("#" + root).append($(this).clone(true).removeAttr("mka").removeAttr("mkb").removeAttr("mkc"));  
+      });
+      return;
+  }
+  duplul.children('[mka*="' + keys + '"],[mkb*="' + keys + '"],[mkc*="' + keys + '"]').each(function() {
+    $("#" + root).append($(this).clone(true).removeAttr("mka").removeAttr("mkb").removeAttr("mkc"));
+  });
+}
