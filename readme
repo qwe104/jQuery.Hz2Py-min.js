@@ -1,3 +1,4 @@
+//转换成拼音小写
 function setShowMobanInfo(root,info){
   var tempul;
   tempul = $('#'+root).clone(true);
