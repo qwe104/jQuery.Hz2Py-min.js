@@ -1,5 +1,5 @@
 //转换成拼音小写
-function setShowMobanInfo(root,info){
+function setShowInfo(root,info){
   var tempul;
   tempul = $('#'+root).clone(true);
   tempul.children().each(function() {
@@ -14,7 +14,7 @@ function setShowMobanInfo(root,info){
   });
  return tempul ;
 }
-//搜索框改变
+//首字母搜索改变
 function selectOption(keys,root){
   keys = keys.toLowerCase();
   $("#" + root).children().remove();
